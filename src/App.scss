@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Water+Brush&display=swap');
+
+:root {
+	--titles-font: 'Water Brush', cursive, bold;
+  --normal-font: 'Roboto Slab', serif;
+}
+
+.App {
+  text-align: center;
+  font-family: var(--normal-font);
+}
+
+.LoadingPage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(44, 44, 44);
+  z-index: 800;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed !important;
+}
+
+/*
+ * -- Landing STYLES --
+ */
+
+.Landing-wrapper {
+  text-align: center;
+  background-color: black;
+  background-image: url("./Assets/main-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 3vmin);
+  color: white;
+  z-index: 1;
+
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed !important;
+}
+
+.Login-content {
+  max-width: 80%;
+  background-color: black;
+  background-image: url("./Assets/paper.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 3;
+}
+
+@media screen and (max-width: 540px) { /* For Mobile */
+  .Form-content {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("./Assets/paper.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    padding-top: 2%;
+    padding-bottom: 10%;
+    color: black;
+    height: 95vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-y: auto;
+    z-index: 3;
+  }
+}
+@media screen and (min-width: 540px) {/* For Big Screens */
+  .Form-content {
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("./Assets/paper.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+    margin-bottom: 2.5vh;
+    color: black;
+    height: 95vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-y: auto;
+    z-index: 3;
+  }
+}
+
+.Form-title {
+  border-bottom: 2px solid black;
+}
+
+.Form-item {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: black;
+  color: rgb(0, 0, 0);
+}
+
+.Form-item:focus, .Form-item:disabled {
+  background-color: rgba(0, 0, 0, 0.089);
+}
+
+@media screen and (max-width: 540px) { /* For Mobile */
+  .Landing-content {
+    width: 100%;
+    height: 50%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    z-index: 3;
+  }
+}
+@media screen and (min-width: 540px) {/* For Big Screens */
+  .Landing-content {
+    width: 65%;
+    height: 50%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    z-index: 3;
+  }
+}
+
+.Landing-title {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 4rem;
+
+  font-weight: bold;
+  font-size: calc(10px + 10vmin);
+  font-family: var(--titles-font);
+  margin-bottom: 10vmin;
+
+  color: rgb(80, 80, 80);
+}
+
+.Landing-btn-layout {
+  position: relative;
+  left: 25%;
+  width: 50%;
+  height: 3rem;
+}
+
+.Landing-start-btn-layout {
+  font-size: calc(10px + 4vmin);
+  height: 6rem;
+  font-weight: bold;
+  width: 40%;
+  position: relative;
+  left: 30%;
+  line-height: 1em;
+}
+
+.Landing-btn {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  cursor: pointer;
+  text-decoration:none;
+  color: rgb(236, 231, 218);
+
+  background-color: rgba(0, 0, 0, 0.137);
+
+  border-radius: 0px;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+  border-left: none;
+  border-right: none;
+}
+
+.Landing-btn:hover {
+  background-color: rgba(87, 87, 87, 0.137);
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+  color: inherit;
+}
+
+.Form-Row {
+  display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(225px, 1.5fr));	
+	width: 100%;
+}
+
+.RecipeLabel {
+  font-size: 15px;
+  color: black;
+}
+
+.upload-btn {
+  width: 100%;
+  height: 56.5px;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.upload-btn:hover, .form-btn:hover {
+  background-color: rgba(0, 0, 0, 0.089);
+  border: 1px solid black;
+  color: black;
+}
+
+.form-btn {
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+}
+
+/*
+ * -- Main STYLES --
+ */
+
+.Main-wrapper {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+
+  top: 100vh;
+
+  position: absolute;
+}
+
+.Menu-title {
+  font-family: var(--titles-font);
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 5vmin);
+  border-bottom: 2px solid black;
+  width: 50%;
+  height: 10%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 25%;
+}
+
+@media screen and (max-width: 540px) { /* For Mobile */
+  .List-wrapper {
+    width: 100%;
+    height: 95vh;
+    z-index: 3;
+    margin-bottom: 2.5vh;
+  
+    background-color: white;
+    background-image: url("./Assets/paper.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+@media screen and (min-width: 540px) {/* For Big Screens */
+  .List-wrapper {
+    width: 70vw;
+    height: 95vh;
+    z-index: 3;
+    margin-bottom: 2.5vh;
+  
+    background-color: white;
+    background-image: url("./Assets/paper.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.List-container {
+  display: grid;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+	gap: 2%;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 0.5fr));
+  grid-template-rows: repeat(auto-fit, minmax(150px, 0.45fr));
+	width: 100%;
+  height: 78%;
+  color: black;
+  font-family: var(--normal-font);
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.List-container::-webkit-scrollbar {
+  display: none;
+}
+
+.Recipe-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.08);
+  border: 1px solid black;
+}
+
+.Recipe-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.recipe-header {
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid black;
+  display: "flex";
+  align-items: center;
+  line-height: 0.7em;
+  margin-top: 0.2em;
+  height: 1.8em;
+}
+
+.recipe-title {
+  font-size: calc(10px + 2.5vmin);
+}
+
+.recipe-subtitle {
+  font-size: calc(10px + 0.2vmin);
+}
+
+.recipe-body {
+  width: 100%;
+  display: "flex";
+  align-items: center;
+  height: 100%;
+  font-size: calc(10px + 0.8vmin);
+  overflow-y: auto;
+}
+
+.Filter-container {
+  font-family: var(--normal-font);
+}
+
+.filter-drop {
+  border-color: black;
+  color: rgb(0, 0, 0);
+  height: 100%;
+}
+
+.filter-btn {
+  height: 100%;
+}
+
+.filter-drop:hover {
+  background-color: rgba(0, 0, 0, 0.534);
+}
+
+/*
+ * -- Recipe Page STYLES --
+ */
+
+ @media screen and (max-width: 540px) { /* For Mobile */
+  .Recipe-page-wrapper {
+    width: 100%;
+    height: 95vh;
+    z-index: 3;
+    margin-bottom: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+  
+    background-color: white;
+    background-image: url("./Assets/paper.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+@media screen and (min-width: 540px) {/* For Big Screens */
+  .Recipe-page-wrapper {
+    width: 70vw;
+    height: 95vh;
+    z-index: 3;
+    margin-bottom: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+  
+    background-color: white;
+    background-image: url("./Assets/paper.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+.Recipe-page-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+ .Recipe-page-header {
+   margin-top: 3vh;
+   line-height: 1.2em;
+ }
+
+ .Recipe-page-title {
+  font-size: calc(10px + 7vmin);
+  font-family: var(--title-font);
+  font-weight: bold;
+ }
+
+ .Recipe-page-subtitle {
+  font-size: calc(10px + 1vmin);
+ }
+
+ .Recipe-page-body {
+   overflow-y: auto;
+   width: 100%;
+ }
+
+ .Recipe-page-section {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  margin-left: 1%;
+  margin-right: 1%;
+  background-color: rgba(0, 0, 0, 0.062);
+ }
+
+ .Recipe-page-btns {
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+ }
+
+ .Recipe-page-divider-lg {
+  border-bottom: 5px solid black;
+  width: 74%;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+ }
+
+ .Recipe-page-divider-sm {
+  border-bottom: 1px solid black;
+  width: 74%;
+  margin-right: 13%;
+  margin-left: 13%;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+ }
+
+ /*
+ * -- Footer STYLES --
+ */
+
+ .Footer {
+   z-index: 2;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+   display: flex;
+   flex-direction: column;
+ }
