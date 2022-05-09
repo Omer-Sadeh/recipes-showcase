@@ -4,7 +4,7 @@ import RecipeForm from '../Components/Forms/RecipeForm';
 import MainMenu from '../Components/Landing/MainMenu';
 import CategoryData from '../DatabaseTools/category.type';
 
-function Landing({Categories, Account, setAccount}:{Categories: Array<CategoryData>, Account: string[], setAccount: any}) {
+function Landing({Categories, Account, setAccount, Ref, setOnMain}:{Categories: Array<CategoryData>, Account: string[], setAccount: any, Ref: any, setOnMain: any}) {
 
   const [AddSwitch, setAddSwitch] = useState(false);
   const [LoginState, setLoginState] = useState(false);
@@ -15,7 +15,7 @@ function Landing({Categories, Account, setAccount}:{Categories: Array<CategoryDa
   else return (
     <div className="Landing-wrapper">
       {AddSwitch ? <RecipeForm currentRecipe={null} switchMode={ToggleAddState} goBack={ToggleAddState} Categories={Categories} EditMode={false} Account={Account}/> :
-        <MainMenu switchAdd={ToggleAddState} Account={Account} changeAccount={() => setLoginState(!LoginState)} />}
+        <MainMenu switchAdd={ToggleAddState} Account={Account} changeAccount={() => setLoginState(!LoginState)} Ref={Ref} setOnMain={setOnMain}/>}
     </div>
   );
 }

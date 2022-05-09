@@ -14,7 +14,7 @@ function RecipeShow({recipe, hide, Categories, Account}:{recipe: any, hide: any,
       <>
         <p>Ingredients</p>
         <div className="Recipe-page-divider-sm" />
-        {recipe.ingredients ? <>{recipe.ingredients.map((ingredient: string) => <p>{ingredient}</p>)}</> : <p>No ingredients to show</p>}
+        {recipe.ingredients ? <>{recipe.ingredients.map((ingredient: string) => <p dir="auto">{ingredient}</p>)}</> : <p>No ingredients to show</p>}
       </>
     );
   }
@@ -24,7 +24,7 @@ function RecipeShow({recipe, hide, Categories, Account}:{recipe: any, hide: any,
       <>
         <p>Instructions</p>
         <div className="Recipe-page-divider-sm" />
-        {recipe.instructions ? <>{recipe.instructions.map((instruction: string) => <p>{instruction}</p>)}</> : <p>No instructions to show</p>}
+        {recipe.instructions ? <>{recipe.instructions.map((instruction: string) => <p dir="auto">{instruction}</p>)}</> : <p>No instructions to show</p>}
       </>
     );
   }
@@ -57,7 +57,7 @@ function RecipeShow({recipe, hide, Categories, Account}:{recipe: any, hide: any,
       <Row className="Recipe-page-btns">
         <Col>
           <Button onClick={hide} className="form-btn">Go Back</Button>
-          {Account[0] === recipe.author ? <>{' '}<Button className="form-btn" onClick={handleEditSwitch}>Edit Recipe</Button></> : null}
+          {Account[0] === recipe.author || Account[0] === "Admin" ? <>{' '}<Button className="form-btn" onClick={handleEditSwitch}>Edit Recipe</Button></> : null}
         </Col>
       </Row>
     </div>

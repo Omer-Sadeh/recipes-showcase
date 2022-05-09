@@ -3,7 +3,7 @@ import { Button, Card, Col, FloatingLabel, Form, FormControl, InputGroup, Row } 
 import RecipesDataService from '../../DatabaseTools/recipes.service';
 import CategoriesDataService from "../../DatabaseTools/categories.service";
 import CategoryData from '../../DatabaseTools/category.type';
-import firebase from '../../firebase';
+import firebase from 'firebase';
 
 function RecipeForm({currentRecipe, switchMode, goBack, Categories, EditMode, Account}:{currentRecipe: any, switchMode: any, goBack: any, Categories: Array<CategoryData>, EditMode: boolean, Account: string[]}) {
 

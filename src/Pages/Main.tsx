@@ -6,7 +6,7 @@ import RecipesList from '../Components/Main/RecipesList';
 import RecipeShow from '../Components/Main/RecipeShow';
 import CategoryData from '../DatabaseTools/category.type';
 
-function Main({Categories, Account}:{Categories: Array<CategoryData>, Account: string[]}) {
+function Main({Categories, Account, Ref, setOnMain, OnMain}:{Categories: Array<CategoryData>, Account: string[], Ref: any, setOnMain: any, OnMain: boolean}) {
 
   const [Recipes, setRecipes] = useState(new Array<RecipeData>());
   const [Images, setImages] = useState({});
@@ -62,13 +62,15 @@ function Main({Categories, Account}:{Categories: Array<CategoryData>, Account: s
   const showRecipe = (id: any) => {
     setRecipeToShow(id);
     setRecipeShowToggle(true);
+
   }
 
-  const HideRecipe = () => {setRecipeShowToggle(false);}
+  const HideRecipe = () => setRecipeShowToggle(false);
 
   return (
-    <div className="Main-wrapper" id="Main">
-      {RecipeShowToggle ? <RecipeShow recipe={RecipeToShow} hide={HideRecipe} Categories={Categories} Account={Account}/> : <RecipesList Recipes={Recipes} Categories={Categories} ShowRecipe={showRecipe} imgs={Images} />}
+    <div className="Main-wrapper" ref={Ref}>
+      {RecipeShowToggle ? <RecipeShow recipe={RecipeToShow} hide={HideRecipe} Categories={Categories} Account={Account}/> :
+      <RecipesList Recipes={Recipes} Categories={Categories} ShowRecipe={showRecipe} imgs={Images} setOnMain={setOnMain} OnMain={OnMain} />}
     </div>
   );
 }

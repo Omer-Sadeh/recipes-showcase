@@ -5,6 +5,13 @@
   --normal-font: 'Roboto Slab', serif;
 }
 
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
   text-align: center;
   font-family: var(--normal-font);
@@ -18,7 +25,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(44, 44, 44);
-  z-index: 800;
+  z-index: 3;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -44,7 +51,7 @@
   justify-content: center;
   font-size: calc(10px + 3vmin);
   color: white;
-  z-index: 1;
+  z-index: 2;
 
   top: 0;
   left: 0;
@@ -83,9 +90,10 @@
     justify-content: center;
     padding: 5%;
     padding-top: 2%;
-    padding-bottom: 10%;
+    padding-bottom: 5%;
+    margin-bottom: 7vh;
     color: black;
-    height: 95vh;
+    height: 90vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow-y: auto;
     z-index: 3;
@@ -159,29 +167,24 @@
   width: 100%;
   height: 4rem;
 
-  font-weight: bold;
-  font-size: calc(10px + 10vmin);
+  font-weight: bolder;
+  font-size: calc(10px + 12vmin);
   font-family: var(--titles-font);
   margin-bottom: 10vmin;
+  cursor: default;
 
   color: rgb(80, 80, 80);
 }
 
 .Landing-btn-layout {
   position: relative;
-  left: 25%;
-  width: 50%;
-  height: 3rem;
+  font-size: calc(10px + 3vmin);
 }
 
 .Landing-start-btn-layout {
-  font-size: calc(10px + 4vmin);
-  height: 6rem;
+  font-size: calc(10px + 6.5vmin);
   font-weight: bold;
-  width: 40%;
   position: relative;
-  left: 30%;
-  line-height: 1em;
 }
 
 .Landing-btn {
@@ -189,27 +192,21 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  //font-family: var(--titles-font);
 
   cursor: pointer;
-  text-decoration:none;
-  color: rgb(236, 231, 218);
+  color: rgba(80, 80, 80, 0.719);
+}
 
-  background-color: rgba(0, 0, 0, 0.137);
-
-  border-radius: 0px;
-  border-top: solid black 1px;
-  border-bottom: solid black 1px;
-  border-left: none;
-  border-right: none;
+@media screen and (max-width: 540px) { /* For Mobile */
+  .Landing-btn {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.144);
+  }
 }
 
 .Landing-btn:hover {
-  background-color: rgba(87, 87, 87, 0.137);
-  border-top: solid black 1px;
-  border-bottom: solid black 1px;
-  color: inherit;
+  color: rgb(80, 80, 80);
 }
 
 .Form-Row {
@@ -263,25 +260,32 @@
   position: absolute;
 }
 
+@media screen and (max-width: 540px) { /* For Mobile */
+  .Main-wrapper {
+    top: 2.5vh;
+  }
+}
+
 .Menu-title {
   font-family: var(--titles-font);
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 5vmin);
   border-bottom: 2px solid black;
+  margin-bottom: 2%;
   width: 50%;
   height: 10%;
   margin-top: 1%;
   margin-bottom: 1%;
   margin-left: 25%;
+  cursor: default;
 }
 
 @media screen and (max-width: 540px) { /* For Mobile */
   .List-wrapper {
     width: 100%;
-    height: 95vh;
+    height: 90vh;
     z-index: 3;
-    margin-bottom: 2.5vh;
+    margin-bottom: 7vh;
+    padding-bottom: 2vh;
   
     background-color: white;
     background-image: url("./Assets/paper.jpg");
@@ -313,8 +317,7 @@
   margin-top: 1%;
   margin-bottom: 1%;
 	gap: 2%;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 0.5fr));
-  grid-template-rows: repeat(auto-fit, minmax(150px, 0.45fr));
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1.5fr));
 	width: 100%;
   height: 78%;
   color: black;
@@ -332,6 +335,8 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.08);
   border: 1px solid black;
+  min-height: 20vh;
+  max-height: 30vh;
 }
 
 .Recipe-wrapper:hover {
@@ -363,7 +368,7 @@
   display: "flex";
   align-items: center;
   height: 100%;
-  font-size: calc(10px + 0.8vmin);
+  font-size: calc(10px + 1vmin);
   overflow-y: auto;
 }
 
@@ -492,10 +497,10 @@
  */
 
  .Footer {
-   z-index: 2;
    align-items: center;
    text-align: center;
    justify-content: center;
    display: flex;
    flex-direction: column;
+   font-size: calc(10px + 0.5vmin);
  }
