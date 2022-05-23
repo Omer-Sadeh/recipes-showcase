@@ -134,6 +134,16 @@
   background-color: rgba(0, 0, 0, 0.089);
 }
 
+.Form-List-btn {
+  cursor: pointer;
+  font-size: calc(10px + 0.8vmin);
+  color: rgb(121, 121, 121);
+}
+
+.Form-List-btn:hover {
+  color: rgb(0, 0, 0);
+}
+
 @media screen and (max-width: 540px) { /* For Mobile */
   .Landing-content {
     width: 100%;
@@ -479,17 +489,46 @@
  .Recipe-page-divider-lg {
   border-bottom: 5px solid black;
   width: 74%;
-  margin-top: 2.5vh;
+  margin-top: 1vh;
   margin-bottom: 2.5vh;
  }
 
  .Recipe-page-divider-sm {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   width: 74%;
   margin-right: 13%;
   margin-left: 13%;
   margin-top: 1vh;
   margin-bottom: 1vh;
+ }
+
+ .Recipe-page-divider-xs {
+  border-bottom: 1px solid black;
+  width: 46%;
+  margin-right: 27%;
+  margin-left: 27%;
+ }
+
+ .Recipe-page-list-title {
+  font-size: calc(10px + 3.5vmin);
+  font-family: var(--title-font);
+  font-weight: bold;
+ }
+
+ .Recipe-page-list-subtitle {
+  font-size: calc(10px + 1.5vmin);
+  font-family: var(--title-font);
+  font-weight: bold;
+ }
+
+ .ListItem {
+  cursor: default;
+  color: black;
+ }
+
+ .crossed {
+  color: rgba(0, 0, 0, 0.377);
+  text-decoration: line-through;
  }
 
  /*

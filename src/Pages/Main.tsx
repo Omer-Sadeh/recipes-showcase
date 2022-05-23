@@ -53,7 +53,11 @@ function Main({Categories, Account, Ref, setOnMain, OnMain}:{Categories: Array<C
         link: data.link,
         author: data.author,
         ingredients: data.ingredients,
-        instructions: data.instructions
+        subIngredientsNames: data.subIngredientsNames,
+        subIngredientsValues: data.subIngredientsValues,
+        instructions: data.instructions,
+        subInstructionsNames: data.subInstructionsNames,
+        subInstructionsValues: data.subInstructionsValues
       });
     });
     setRecipes(recipes);
