@@ -2,4 +2,5 @@
 
 ## [Showcase Demo](https://recipes-showcase.web.app/)
 
-Editing password: 12345
+Editing username: test@test.com
+Editing password: test12
