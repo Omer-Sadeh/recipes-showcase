@@ -6,7 +6,7 @@ import RecipesList from '../Components/Main/RecipesList';
 import RecipeShow from '../Components/Main/RecipeShow';
 import CategoryData from '../DatabaseTools/category.type';
 
-function Main({Categories, Account, Ref, setOnMain, OnMain}:{Categories: Array<CategoryData>, Account: string[], Ref: any, setOnMain: any, OnMain: boolean}) {
+function Main({Categories,Ref, setOnMain, OnMain}:{Categories: Array<CategoryData>, Ref: any, setOnMain: any, OnMain: boolean}) {
 
   const [Recipes, setRecipes] = useState(new Array<RecipeData>());
   const [Images, setImages] = useState({});
@@ -73,7 +73,7 @@ function Main({Categories, Account, Ref, setOnMain, OnMain}:{Categories: Array<C
 
   return (
     <div className="Main-wrapper" ref={Ref}>
-      {RecipeShowToggle ? <RecipeShow recipe={RecipeToShow} hide={HideRecipe} Categories={Categories} Account={Account}/> :
+      {RecipeShowToggle ? <RecipeShow recipe={RecipeToShow} hide={HideRecipe} Categories={Categories}/> :
       <RecipesList Recipes={Recipes} Categories={Categories} ShowRecipe={showRecipe} imgs={Images} setOnMain={setOnMain} OnMain={OnMain} />}
     </div>
   );

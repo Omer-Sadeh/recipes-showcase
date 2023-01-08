@@ -4,8 +4,9 @@ import CategoryData from '../../DatabaseTools/category.type';
 import RecipeForm from '../Forms/RecipeForm';
 import Hidden from '@material-ui/core/Hidden';
 import DynamicItem from '../Lists/DynamicItem';
+import AuthService from "../../DatabaseTools/authen.service";
 
-function RecipeShow({recipe, hide, Categories, Account}:{recipe: any, hide: any, Categories: Array<CategoryData>, Account: string[]}) {
+function RecipeShow({recipe, hide, Categories}:{recipe: any, hide: any, Categories: Array<CategoryData>}) {
 
   const [EditMode, setEditMode] = useState(false);
 
@@ -49,7 +50,7 @@ function RecipeShow({recipe, hide, Categories, Account}:{recipe: any, hide: any,
   }
 
   if (EditMode) return (
-    <RecipeForm currentRecipe={recipe} switchMode={() => setEditMode(!EditMode)} goBack={hide} Categories={Categories} EditMode={true} Account={Account}/>
+    <RecipeForm currentRecipe={recipe} switchMode={() => setEditMode(!EditMode)} goBack={hide} Categories={Categories} EditMode={true}/>
   );
   else return (
     <div className="Recipe-page-wrapper">
@@ -75,7 +76,7 @@ function RecipeShow({recipe, hide, Categories, Account}:{recipe: any, hide: any,
       <Row className="Recipe-page-btns">
         <Col>
           <Button onClick={hide} className="form-btn">Go Back</Button>
-          {Account[0] === recipe.author || Account[0] === "Admin" ? <>{' '}<Button className="form-btn" onClick={() => setEditMode(!EditMode)}>Edit Recipe</Button></> : null}
+          {AuthService.user()?.displayName === recipe.author || AuthService.user()?.displayName === "Administrator" ? <>{' '}<Button className="form-btn form-btn-edit" onClick={() => setEditMode(!EditMode)}>Edit Recipe</Button></> : null}
         </Col>
       </Row>
     </div>

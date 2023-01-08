@@ -14,7 +14,7 @@ export const useScrollBlock = (): [() => void, () => void] => {
 	const blockScroll = (): void => {
 		if (!body || !body.style || scrollBlocked.current) 
             return;
-        if (document == undefined)
+        if (document === undefined)
             return;
 
 		const scrollBarWidth = window.innerWidth - html.clientWidth;

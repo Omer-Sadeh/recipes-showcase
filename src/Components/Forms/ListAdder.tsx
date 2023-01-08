@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, Form, FormControl, InputGroup, Modal } from 'react-bootstrap';
+import { Button, Form, Modal } from 'react-bootstrap';
 
 function ListAdder({list, addFunc}:{list: string, addFunc: any}) {
 

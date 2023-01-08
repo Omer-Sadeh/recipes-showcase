@@ -1,5 +1,4 @@
 import firebase from "../firebase";
-import UserData from "./user.type";
 
 const db = firebase.database().ref("/users");
 
@@ -8,8 +7,18 @@ class UsersDataService {
     return db;
   }
 
-  create(user: UserData) {
-    return db.push(user);
+  verify(email: string) {
+    var found = false;
+    db.once('value', (snapshot) => {
+      snapshot.forEach(function(user) {
+        if (user.val().email === email) {
+          alert(user.val().name + " verified!");
+          found = true;
+          if (user.key) db.child(user.key).update({verified: true});
+        }
+      });
+    });
+    if (!found) {alert("User Not Found!")}
   }
 }
 

@@ -17,7 +17,11 @@
   font-family: var(--normal-font);
 }
 
-.LoadingPage {
+/*
+ * -- Login STYLES --
+ */
+
+.LoginPage {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -30,6 +34,56 @@
   left: 0;
   overflow: hidden;
   position: fixed !important;
+}
+
+.login-form {
+  max-width: 80%;
+  background-color: rgba(0, 0, 0, 0.37);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.login-title {
+  font-size: calc(10px + 3vmin);
+  cursor: default;
+}
+
+.login-subtext {
+  font-size: calc(10px + 0.4vmin);
+}
+
+.login-link {
+  cursor: pointer;
+  color: rgb(133, 133, 133);
+}
+
+.login-link:hover {
+  color: white;
+}
+
+.login-btn {
+  border-color: white;
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.login-logo {
+  position: absolute;
+  top: 10%;
+  max-height: 30%;
+  opacity: 50%;
+  z-index: 4;
 }
 
 /*
@@ -61,8 +115,8 @@
 
 .Login-content {
   max-width: 80%;
-  background-color: black;
-  background-image: url("./Assets/paper.jpg");
+  background-color: rgb(255, 255, 255);
+  //background-image: url("./Assets/paper.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,14 +128,14 @@
   overflow: hidden;
   padding: 10px;
   border-radius: 5px;
-  z-index: 3;
+  z-index: 4;
 }
 
 @media screen and (max-width: 540px) { /* For Mobile */
   .Form-content {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url("./Assets/paper.jpg");
+    background-color: rgb(255, 255, 255);
+    //background-image: url("./Assets/paper.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -102,8 +156,8 @@
 @media screen and (min-width: 540px) {/* For Big Screens */
   .Form-content {
     width: 80%;
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url("./Assets/paper.jpg");
+    background-color: rgb(255, 255, 255);
+    //background-image: url("./Assets/paper.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -118,6 +172,11 @@
     overflow-y: auto;
     z-index: 3;
   }
+}
+
+.Form-content-add {
+  position: fixed;
+  top: 4vh;
 }
 
 .Form-title {
@@ -202,7 +261,6 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  //font-family: var(--titles-font);
 
   cursor: pointer;
   color: rgba(80, 80, 80, 0.719);
@@ -217,6 +275,16 @@
 
 .Landing-btn:hover {
   color: rgb(80, 80, 80);
+}
+
+.Landing-btn-dis {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  cursor: default;
+  color: rgba(139, 139, 139, 0.719);
 }
 
 .Form-Row {
@@ -250,6 +318,24 @@
   color: black;
 }
 
+.form-btn-done {
+  font-weight: bolder;
+}
+
+.form-btn-delete {
+  color: red;
+}
+.form-btn-delete:hover {
+  color: red;
+}
+
+.form-btn-edit {
+  color: rgb(99, 99, 99);
+}
+.form-btn-edit:hover {
+  color: rgb(99, 99, 99);
+}
+
 /*
  * -- Main STYLES --
  */
@@ -259,20 +345,24 @@
   background-color: rgba(255, 255, 255, 0);
 
   width: 100%;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
 
-  top: 100vh;
+  z-index: 3;
 
-  position: absolute;
+  top: 2.5vh;
+  left: 0;
+  overflow: hidden;
+  position: fixed !important;
 }
 
 @media screen and (max-width: 540px) { /* For Mobile */
   .Main-wrapper {
-    top: 2.5vh;
+    top: 5vh;
   }
 }
 
@@ -293,12 +383,12 @@
   .List-wrapper {
     width: 100%;
     height: 90vh;
-    z-index: 3;
+    z-index: 4;
     margin-bottom: 7vh;
     padding-bottom: 2vh;
   
     background-color: white;
-    background-image: url("./Assets/paper.jpg");
+    //background-image: url("./Assets/paper.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -309,11 +399,11 @@
   .List-wrapper {
     width: 70vw;
     height: 95vh;
-    z-index: 3;
+    z-index: 4;
     margin-bottom: 2.5vh;
   
     background-color: white;
-    background-image: url("./Assets/paper.jpg");
+    //background-image: url("./Assets/paper.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -329,7 +419,7 @@
 	gap: 2%;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1.5fr));
 	width: 100%;
-  height: 78%;
+  height: 72%;
   color: black;
   font-family: var(--normal-font);
   overflow-y: auto;
@@ -338,6 +428,11 @@
 }
 .List-container::-webkit-scrollbar {
   display: none;
+}
+@media screen and (max-width: 540px) { /* For Mobile */
+  .List-container {
+    margin-bottom: 3%;
+  }
 }
 
 .Recipe-wrapper {
@@ -386,6 +481,27 @@
   font-family: var(--normal-font);
 }
 
+@media screen and (max-width: 540px) { /* For Mobile */
+  .Filter-container2 {
+    font-family: var(--normal-font);
+    width: 100%;
+  }
+}
+@media screen and (min-width: 540px) and (max-width: 1000px) { /* For Medium Screens */
+  .Filter-container2 {
+    font-family: var(--normal-font);
+    max-width: 80%;
+    left: 10%;
+  }
+}
+@media screen and (min-width: 1000px) {/* For Big Screens */
+  .Filter-container2 {
+    font-family: var(--normal-font);
+    max-width: 40%;
+    left: 30%;
+  }
+}
+
 .filter-drop {
   border-color: black;
   color: rgb(0, 0, 0);
@@ -408,7 +524,7 @@
   .Recipe-page-wrapper {
     width: 100%;
     height: 95vh;
-    z-index: 3;
+    z-index: 4;
     margin-bottom: 2.5vh;
     display: flex;
     flex-direction: column;
@@ -416,7 +532,7 @@
     overflow-y: auto;
   
     background-color: white;
-    background-image: url("./Assets/paper.jpg");
+    //background-image: url("./Assets/paper.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -429,7 +545,7 @@
   .Recipe-page-wrapper {
     width: 70vw;
     height: 95vh;
-    z-index: 3;
+    z-index: 4;
     margin-bottom: 2.5vh;
     display: flex;
     flex-direction: column;
@@ -437,7 +553,7 @@
     overflow-y: auto;
   
     background-color: white;
-    background-image: url("./Assets/paper.jpg");
+    //background-image: url("./Assets/paper.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -543,3 +659,44 @@
    flex-direction: column;
    font-size: calc(10px + 0.5vmin);
  }
+
+ /*
+ * -- UserPanel STYLES --
+ */
+
+ .UserPanel {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 0.5vmin);
+  z-index: 3;
+}
+
+.UserPanel-show {
+  background-color: rgba(0, 0, 0, 0.205);
+  padding: 5px;
+  width: 30vw;
+  border-radius: 5px;
+}
+
+.panel-link {
+  cursor: pointer;
+  color: rgb(12, 0, 116);
+}
+
+.panel-link:hover {
+  color: white;
+}
+
+.UserPanel-btn {
+  background-color: rgba(0, 0, 0, 0.205);
+  border: none;
+  color: black;
+}
+
+.UserPanel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.562);
+  border: none;
+}

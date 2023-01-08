@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Button, Col, FloatingLabel, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
 import RecipesDataService from '../../DatabaseTools/recipes.service';
 import CategoriesDataService from "../../DatabaseTools/categories.service";
+import AuthService from "../../DatabaseTools/authen.service";
 import CategoryData from '../../DatabaseTools/category.type';
 import firebase from 'firebase';
 import ListCard from './ListCard';
 import ListAdder from './ListAdder';
 
-function RecipeForm({currentRecipe, switchMode, goBack, Categories, EditMode, Account}:{currentRecipe: any, switchMode: any, goBack: any, Categories: Array<CategoryData>, EditMode: boolean, Account: string[]}) {
+function RecipeForm({currentRecipe, switchMode, goBack, Categories, EditMode}:{currentRecipe: any, switchMode: any, goBack: any, Categories: Array<CategoryData>, EditMode: boolean}) {
 
   // Global Constants
   const [validated, setValidated] = useState(false);
@@ -36,7 +37,7 @@ function RecipeForm({currentRecipe, switchMode, goBack, Categories, EditMode, Ac
     mainCategory: "",
     secondaryCategory:"",
     link: "",
-    author: Account[0],
+    author: AuthService.user()?.displayName,
     ingredients: [],
     subIngredientsNames: [],
     subIngredientsValues: [],
@@ -114,13 +115,13 @@ function RecipeForm({currentRecipe, switchMode, goBack, Categories, EditMode, Ac
   const handleCategoryAddChange = (event: { target: { value: any; }; }) => { setNewCategory(event.target.value); }
   const HandleCategoryAddSubmit = (input: string) => {
     if (input === "MAIN") {
-      CategoriesDataService.create({ category: NewCategory, subcategory: []});
+      CategoriesDataService.create({ category: NewCategory, hasSubCategory: false, subcategory: []});
     }
     if (input === "SECOND") {
       var index = -1;
       Categories.forEach((category, categoryIndex) => {if (category.category === RecipeToAdd["mainCategory"]) index = categoryIndex;});
       if (Categories[index].subcategory === undefined) {
-        CategoriesDataService.update(Categories[index].key + "", { subcategory: [NewCategory]});
+        CategoriesDataService.update(Categories[index].key + "", { hasSubCategory: true, subcategory: [NewCategory]});
       }
       else CategoriesDataService.update(Categories[index].key + "", { subcategory: [...Categories[index].subcategory, NewCategory]});
     }
@@ -243,7 +244,7 @@ function RecipeForm({currentRecipe, switchMode, goBack, Categories, EditMode, Ac
   }
 
   return (
-      <div className="Form-content">
+      <div className={EditMode ? "Form-content" : "Form-content Form-content-add"}>
         <p className="Form-title">{EditMode ? 'Edit Recipe!' : 'Add Recipe!'}</p>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
@@ -334,12 +335,12 @@ function RecipeForm({currentRecipe, switchMode, goBack, Categories, EditMode, Ac
 
           <Row className="align-items-center Form-Row">
             {EditMode ? 
-              <Col><br /><Button className="form-btn" type="submit">Save Edit</Button>
+              <Col><br /><Button className="form-btn form-btn-done" type="submit">Save Edit</Button>
               {' '}
-              <Button className="form-btn" onClick={DeleteRecipe}>Delete Recipe</Button>
+              <Button className="form-btn form-btn form-btn-delete" onClick={DeleteRecipe}>Delete Recipe</Button>
               {' '}
               <Button className="form-btn" onClick={switchMode}>Cancel Edit</Button></Col> :
-              <Col><br /><Button className="form-btn" type="submit">Add</Button>
+              <Col><br /><Button className="form-btn form-btn-done" type="submit">Add</Button>
               {' '}
               <Button onClick={switchMode} className="form-btn">Go Back</Button></Col>
             }
